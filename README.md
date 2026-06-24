@@ -38,6 +38,19 @@ Le fichier `frontend/.env` sert au developpement local. Avec Docker, le frontend
 docker compose up -d --build
 ```
 
+Si le serveur ne reconnait pas `docker compose`, verifier :
+
+```bash
+docker compose version
+docker-compose version
+```
+
+Si `docker-compose` existe, utiliser cette commande a la place :
+
+```bash
+docker-compose up -d --build
+```
+
 Le site sera disponible sur :
 
 ```txt
