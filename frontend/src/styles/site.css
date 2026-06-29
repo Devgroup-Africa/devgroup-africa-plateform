@@ -8,7 +8,7 @@
   --line: #ded9d3;
   --white: #fff;
   --radius: 18px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   color: var(--ink);
   background: var(--white);
   font-synthesis: none;
@@ -33,7 +33,7 @@ body {
   z-index: 9999;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: #fff; /* background: #1b2030; */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -85,7 +85,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   letter-spacing: -0.04em;
 }
 h1 {
@@ -183,7 +183,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 800;
   letter-spacing: -0.05em;
   font-size: 1.05rem;
@@ -322,9 +322,7 @@ nav > a.active {
   color: #d5e4de;
 }
 .visual-main strong {
-  font:
-    800 3.4rem/1.02 "JetBrains Mono",
-    monospace;
+  font: 800 3.4rem/1.02 'JetBrains Mono', monospace;
   letter-spacing: -0.07em;
   display: block;
   margin-top: 55px;
@@ -343,9 +341,7 @@ nav > a.active {
   padding: 23px;
 }
 .visual-stat strong {
-  font:
-    800 2rem "JetBrains Mono",
-    monospace;
+  font: 800 2rem 'JetBrains Mono', monospace;
   color: var(--green);
   display: block;
 }
@@ -451,7 +447,7 @@ nav > a.active {
 .process-card > span {
   color: var(--green);
   font-weight: 800;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 .process-card h3 {
   font-size: 1.45rem;
@@ -605,7 +601,7 @@ nav > a.active {
   overflow: hidden;
 }
 .cta-card:after {
-  content: "";
+  content: '';
   position: absolute;
   width: 380px;
   height: 380px;
@@ -801,9 +797,7 @@ footer {
   padding-left: 25px;
 }
 .stats strong {
-  font:
-    800 3rem "JetBrains Mono",
-    monospace;
+  font: 800 3rem 'JetBrains Mono', monospace;
   color: var(--green);
 }
 .stats span {
@@ -1215,9 +1209,7 @@ footer {
 }
 .admin-cards strong {
   display: block;
-  font:
-    700 1.3rem "JetBrains Mono",
-    monospace;
+  font: 700 1.3rem 'JetBrains Mono', monospace;
   margin: 18px 0 5px;
 }
 .admin-cards p,
@@ -1676,7 +1668,7 @@ footer,
   background: var(--cream);
 }
 .page-hero:before {
-  content: "";
+  content: '';
   position: absolute;
   width: 260px;
   height: 260px;
@@ -1756,7 +1748,7 @@ footer,
 }
 .hero::before,
 .page-hero::before {
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   inset: 0;
@@ -1869,7 +1861,7 @@ footer,
   align-items: center;
   padding: 0 30px;
   border-bottom: 1px solid #d8e0ed;
-  background: #fff;
+  background: #1b2030;
 }
 .admin-brand {
   display: inline-flex;
@@ -2079,9 +2071,15 @@ footer,
   border-radius: 50%;
   color: #fff;
 }
-.activity-icon.red { background: #ff2741; }
-.activity-icon.green { background: #03bd78; }
-.activity-icon.blue { background: #315dff; }
+.activity-icon.red {
+  background: #ff2741;
+}
+.activity-icon.green {
+  background: #03bd78;
+}
+.activity-icon.blue {
+  background: #315dff;
+}
 .activity-item strong,
 .admin-simple-table td:first-child,
 .admin-data-table strong {
@@ -2108,7 +2106,7 @@ footer,
   position: relative;
 }
 .donut-chart:after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 26px;
   border-radius: 50%;
@@ -2198,9 +2196,16 @@ footer,
   line-height: 30px;
   text-align: right;
 }
-.bar-list div:nth-child(2) strong { background: #5b9ff0; }
-.bar-list div:nth-child(3) strong { background: #84baee; }
-.bar-list div:nth-child(4) strong { background: #d4e5fb; color: #0a48a8; }
+.bar-list div:nth-child(2) strong {
+  background: #5b9ff0;
+}
+.bar-list div:nth-child(3) strong {
+  background: #84baee;
+}
+.bar-list div:nth-child(4) strong {
+  background: #d4e5fb;
+  color: #0a48a8;
+}
 .admin-split-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 430px;
