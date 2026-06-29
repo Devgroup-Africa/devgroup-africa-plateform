@@ -19,6 +19,47 @@
 body {
   margin: 0;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.global-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+.global-loader.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.global-loader img {
+  width: clamp(38px, 6vw, 62px);
+  height: clamp(38px, 6vw, 62px);
+  object-fit: contain;
+  animation: devgroup-loader-spin 1.8s linear infinite;
+}
+@keyframes devgroup-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .global-loader img {
+    animation-duration: 3.2s;
+  }
+}
 a {
   color: inherit;
   text-decoration: none;

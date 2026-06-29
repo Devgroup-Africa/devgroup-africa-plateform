@@ -2,6 +2,20 @@ import { getAuthToken } from '../auth/session'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:7100/api'
 
+function emitLoadingEvent(type) {
+  if (typeof window === 'undefined') return
+  window.dispatchEvent(new Event(`devgroup:${type}`))
+}
+
+async function withLoading(request) {
+  emitLoadingEvent('loading-start')
+  try {
+    return await request()
+  } finally {
+    emitLoadingEvent('loading-end')
+  }
+}
+
 function getHeaders(authenticated = false) {
   const headers = { 'Content-Type': 'application/json' }
   const token = getAuthToken()
@@ -14,52 +28,60 @@ function getHeaders(authenticated = false) {
 }
 
 export async function apiGet(path) {
-  const response = await fetch(`${API_URL}${path}`, {
-    headers: path.startsWith('/admin') ? getHeaders(true) : undefined,
+  return withLoading(async () => {
+    const response = await fetch(`${API_URL}${path}`, {
+      headers: path.startsWith('/admin') ? getHeaders(true) : undefined,
+    })
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status}`)
+    }
+    return response.json()
   })
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`)
-  }
-  return response.json()
 }
 
 export async function apiSend(path, payload, method = 'POST') {
-  const response = await fetch(`${API_URL}${path}`, {
-    method,
-    headers: getHeaders(path.startsWith('/admin')),
-    body: JSON.stringify(payload),
+  return withLoading(async () => {
+    const response = await fetch(`${API_URL}${path}`, {
+      method,
+      headers: getHeaders(path.startsWith('/admin')),
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status}`)
+    }
+
+    return response.json()
   })
-
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`)
-  }
-
-  return response.json()
 }
 
 export async function apiDelete(path) {
-  const response = await fetch(`${API_URL}${path}`, {
-    method: 'DELETE',
-    headers: getHeaders(path.startsWith('/admin')),
-  })
+  return withLoading(async () => {
+    const response = await fetch(`${API_URL}${path}`, {
+      method: 'DELETE',
+      headers: getHeaders(path.startsWith('/admin')),
+    })
 
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`)
-  }
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status}`)
+    }
+  })
 }
 
 export async function apiUpload(path, formData) {
-  const token = getAuthToken()
-  const headers = token ? { Authorization: `Bearer ${token}` } : {}
-  const response = await fetch(`${API_URL}${path}`, {
-    method: 'POST',
-    headers,
-    body: formData,
+  return withLoading(async () => {
+    const token = getAuthToken()
+    const headers = token ? { Authorization: `Bearer ${token}` } : {}
+    const response = await fetch(`${API_URL}${path}`, {
+      method: 'POST',
+      headers,
+      body: formData,
+    })
+
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status}`)
+    }
+
+    return response.json()
   })
-
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`)
-  }
-
-  return response.json()
 }
