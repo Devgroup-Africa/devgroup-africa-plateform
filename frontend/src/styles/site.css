@@ -682,6 +682,9 @@ footer {
   font-size: 1.1rem;
   max-width: 650px;
 }
+.page-hero-action {
+  margin-top: 16px;
+}
 .detail-hero {
   background: var(--cream);
 }

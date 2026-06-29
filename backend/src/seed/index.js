@@ -10,7 +10,7 @@ import { PageContent } from '../models/PageContent.js'
 import { Post } from '../models/Post.js'
 import { Project } from '../models/Project.js'
 import { User } from '../models/User.js'
-import { catalogItems, homePage, posts, projects } from './data.js'
+import { catalogItems, homePage, legacyServiceSlugs, posts, projects } from './data.js'
 
 async function upsertMany(Model, items, uniqueKeys) {
   for (const item of items) {
@@ -24,6 +24,7 @@ async function seed() {
 
   await PageContent.updateOne({ key: homePage.key }, { $set: homePage }, { upsert: true, runValidators: true })
   await upsertMany(CatalogItem, catalogItems, ['type', 'slug'])
+  await CatalogItem.updateMany({ type: 'service', slug: { $in: legacyServiceSlugs } }, { $set: { status: 'draft' } })
   await upsertMany(Project, projects, ['slug'])
   await upsertMany(Post, posts, ['slug'])
 

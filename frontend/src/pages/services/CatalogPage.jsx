@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react'
 import { hydrateIcons } from '../../api/iconMap'
 import { useApiResource } from '../../api/useApiResource'
 import { CallToAction } from '../../components/common/CallToAction'
@@ -17,7 +18,13 @@ export function CatalogPage({ type }) {
         eyebrow={isServices ? 'Nos services' : 'Nos solutions'}
         title={isServices ? 'Des expertises réunies pour faire avancer vos projets.' : 'Des outils numériques conçus autour de votre activité.'}
         text={isServices ? 'Nous intervenons de la stratégie à la maintenance pour créer des produits numériques solides.' : 'Nous adaptons chaque solution à vos processus, vos équipes et vos utilisateurs.'}
-      />
+      >
+        {isServices && (
+          <a className="button page-hero-action" href="/images/DevGroup Africa Catalogue.pdf" download>
+            Télécharger le catalogue <Download size={17} />
+          </a>
+        )}
+      </PageHero>
       <section><div className="container"><CardGrid items={items} basePath={`/${type}`} /></div></section>
       <CallToAction />
     </PublicLayout>

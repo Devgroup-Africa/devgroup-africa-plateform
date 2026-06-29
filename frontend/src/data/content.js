@@ -1,17 +1,109 @@
 import {
-  BarChart3, Blocks, Bot, BriefcaseBusiness, CloudCog, Code2, Compass,
-  Headphones, LayoutDashboard, MonitorSmartphone, Palette, RefreshCw, ShoppingCart,
+  AudioLines, BarChart3, Blocks, Bot, BrainCircuit, BriefcaseBusiness, CloudCog,
+  Code2, Compass, Globe2, Headphones, LayoutDashboard, MonitorSmartphone, Palette,
+  RefreshCw, ShoppingCart,
 } from 'lucide-react'
 
 export const services = [
-  { slug: 'transformation-digitale', title: 'Transformation digitale', icon: RefreshCw, description: 'Structurez votre transition numérique avec une feuille de route réaliste et mesurable.' },
-  { slug: 'developpement-web', title: 'Développement web', icon: Code2, description: 'Des plateformes web rapides, accessibles et conçues pour évoluer avec votre activité.' },
-  { slug: 'developpement-mobile', title: 'Développement mobile', icon: MonitorSmartphone, description: 'Des applications mobiles intuitives qui rapprochent vos services de vos utilisateurs.' },
-  { slug: 'plateformes-metiers', title: 'Plateformes métiers', icon: BriefcaseBusiness, description: 'Des outils sur mesure qui simplifient vos opérations et centralisent vos données.' },
-  { slug: 'ux-ui-design', title: 'UX / UI Design', icon: Palette, description: 'Des expériences claires et agréables, pensées autour des vrais besoins utilisateurs.' },
-  { slug: 'cloud-devops', title: 'Cloud & DevOps', icon: CloudCog, description: 'Une infrastructure fiable, automatisée et prête à accompagner votre croissance.' },
-  { slug: 'maintenance-support', title: 'Maintenance & support', icon: Headphones, description: 'Un suivi réactif pour garder vos produits performants, sécurisés et disponibles.' },
-  { slug: 'conseil-it', title: 'Conseil IT', icon: Compass, description: 'Des décisions technologiques éclairées, alignées avec vos objectifs stratégiques.' },
+  {
+    slug: 'developpement-solutions-numeriques',
+    title: 'Développement de solutions numériques',
+    icon: Code2,
+    description: 'Conception et réalisation de plateformes et applications sur mesure adaptées à vos besoins.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Des solutions métiers construites autour de vos usages.',
+      bullets: ['Applications web', 'Applications mobiles', 'Logiciels métiers', 'Plateformes SaaS', 'Portails clients', 'Outils de gestion interne', 'Modernisation d’applications', 'Applications de bureau'],
+    },
+  },
+  {
+    slug: 'creation-sites-web',
+    title: 'Création de sites web',
+    icon: Globe2,
+    description: 'Conception de sites professionnels adaptés aux besoins des entreprises et organisations.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Une présence web claire, professionnelle et maintenable.',
+      bullets: ['Sites vitrines', 'Sites institutionnels', 'Blogs professionnels', 'Portails d’information', 'Sites événementiels', 'Refonte de sites', 'Maintenance'],
+    },
+  },
+  {
+    slug: 'digitalisation-entreprises',
+    title: 'Digitalisation des entreprises',
+    icon: RefreshCw,
+    description: 'Remplacement des processus manuels par des solutions numériques simples et efficaces.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Des processus plus fluides, mieux suivis et moins dépendants du papier.',
+      bullets: ['Analyse des processus métiers', 'Solutions de gestion', 'Formation des équipes', 'Gestion documentaire', 'Tableaux de bord'],
+    },
+  },
+  {
+    slug: 'conception-ui-ux',
+    title: 'Conception UI/UX',
+    icon: Palette,
+    description: 'Création d’interfaces modernes, intuitives et centrées utilisateur.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Des interfaces utiles, lisibles et faciles à adopter.',
+      bullets: ['Maquettes d’applications', 'Maquettes de sites web', 'Prototypage interactif', 'Design system', 'Optimisation UX', 'Visuels et affiches sur mesure', 'Formation des équipes'],
+    },
+  },
+  {
+    slug: 'hebergement-deploiement',
+    title: 'Hébergement et déploiement',
+    icon: CloudCog,
+    description: 'Mise en production et gestion des infrastructures applicatives, avec hébergement local lorsque c’est pertinent.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Une mise en ligne maîtrisée et un socle technique fiable.',
+      bullets: ['Déploiement de plateformes web', 'Gestion de serveurs', 'Configuration de domaines', 'Surveillance des services', 'Hébergement local des solutions développées'],
+    },
+  },
+  {
+    slug: 'maintenance-support',
+    title: 'Maintenance et support',
+    icon: Headphones,
+    description: 'Assistance technique après livraison pour garder vos projets stables et performants.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Un accompagnement technique après la mise en ligne.',
+      bullets: ['Correction de bugs', 'Mises à jour', 'Assistance utilisateur', 'Optimisation des performances', 'Évolution fonctionnelle'],
+    },
+  },
+  {
+    slug: 'intelligence-artificielle',
+    title: 'Intelligence artificielle',
+    icon: BrainCircuit,
+    description: 'Intégrez la puissance de l’IA dans vos processus métiers et vos outils internes.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Des usages IA concrets pour automatiser, analyser et assister vos équipes.',
+      bullets: ['Chatbots et agents IA', 'Modèles d’aide à la décision', 'Analyse prédictive et business', 'Assistant IA WhatsApp', 'Automatisation intelligente des processus métier', 'Systèmes IA multimodaux intelligents'],
+    },
+  },
+  {
+    slug: 'conseil-transformation-numerique',
+    title: 'Conseil en transformation numérique',
+    icon: Compass,
+    description: 'Accompagnement stratégique des organisations dans leurs projets numériques.',
+    details: {
+      eyebrow: 'Services',
+      title: 'Des décisions numériques cadrées, réalistes et alignées avec vos objectifs.',
+      bullets: ['Audit numérique', 'Étude de faisabilité', 'Élaboration de cahiers des charges', 'Accompagnement de projets', 'Choix technologiques', 'Assistance à la maîtrise d’ouvrage'],
+    },
+  },
+  {
+    slug: 'synthese-vocale-voix-ia',
+    title: 'Synthèse vocale et voix IA',
+    icon: AudioLines,
+    description: 'Création de voix professionnelles pour spots radio, SVI, e-learning et applications. Bientôt disponible.',
+    details: {
+      eyebrow: 'Services bientôt disponible',
+      title: 'Des expériences vocales professionnelles pour vos contenus et applications.',
+      bullets: ['Synthèse vocale IA', 'Spots audio et publicités radio', 'Voix pour applications et chatbots', 'Clonage de voix professionnelles', 'Serveurs vocaux intelligents (SVI)', 'Contenu audio en langues locales'],
+    },
+  },
 ]
 
 export const solutions = [

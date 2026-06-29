@@ -1,16 +1,20 @@
 import {
-  BarChart3, Blocks, Bot, BriefcaseBusiness, CloudCog, Code2, Compass,
-  Headphones, LayoutDashboard, MonitorSmartphone, Palette, RefreshCw, ShoppingCart,
+  AudioLines, BarChart3, Blocks, Bot, BrainCircuit, BriefcaseBusiness, CloudCog,
+  Code2, Compass, Globe2, Headphones, LayoutDashboard, MonitorSmartphone, Palette,
+  RefreshCw, ShoppingCart,
 } from 'lucide-react'
 
 const icons = {
+  AudioLines,
   BarChart3,
   Blocks,
   Bot,
+  BrainCircuit,
   BriefcaseBusiness,
   CloudCog,
   Code2,
   Compass,
+  Globe2,
   Headphones,
   LayoutDashboard,
   MonitorSmartphone,

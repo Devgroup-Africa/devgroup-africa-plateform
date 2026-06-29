@@ -55,14 +55,123 @@ export const homePage = {
 }
 
 export const catalogItems = [
-  { type: 'service', slug: 'transformation-digitale', title: 'Transformation digitale', icon: 'RefreshCw', description: 'Structurez votre transition numérique avec une feuille de route réaliste et mesurable.', order: 1 },
-  { type: 'service', slug: 'developpement-web', title: 'Développement web', icon: 'Code2', description: 'Des plateformes web rapides, accessibles et conçues pour évoluer avec votre activité.', order: 2 },
-  { type: 'service', slug: 'developpement-mobile', title: 'Développement mobile', icon: 'MonitorSmartphone', description: 'Des applications mobiles intuitives qui rapprochent vos services de vos utilisateurs.', order: 3 },
-  { type: 'service', slug: 'plateformes-metiers', title: 'Plateformes métiers', icon: 'BriefcaseBusiness', description: 'Des outils sur mesure qui simplifient vos opérations et centralisent vos données.', order: 4 },
-  { type: 'service', slug: 'ux-ui-design', title: 'UX / UI Design', icon: 'Palette', description: 'Des expériences claires et agréables, pensées autour des vrais besoins utilisateurs.', order: 5 },
-  { type: 'service', slug: 'cloud-devops', title: 'Cloud & DevOps', icon: 'CloudCog', description: 'Une infrastructure fiable, automatisée et prête à accompagner votre croissance.', order: 6 },
-  { type: 'service', slug: 'maintenance-support', title: 'Maintenance & support', icon: 'Headphones', description: 'Un suivi réactif pour garder vos produits performants, sécurisés et disponibles.', order: 7 },
-  { type: 'service', slug: 'conseil-it', title: 'Conseil IT', icon: 'Compass', description: 'Des décisions technologiques éclairées, alignées avec vos objectifs stratégiques.', order: 8 },
+  {
+    type: 'service',
+    slug: 'developpement-solutions-numeriques',
+    title: 'Développement de solutions numériques',
+    icon: 'Code2',
+    description: 'Conception et réalisation de plateformes et applications sur mesure adaptées à vos besoins.',
+    order: 1,
+    details: {
+      eyebrow: 'Services',
+      title: 'Des solutions métiers construites autour de vos usages.',
+      bullets: ['Applications web', 'Applications mobiles', 'Logiciels métiers', 'Plateformes SaaS', 'Portails clients', 'Outils de gestion interne', 'Modernisation d’applications', 'Applications de bureau'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'creation-sites-web',
+    title: 'Création de sites web',
+    icon: 'Globe2',
+    description: 'Conception de sites professionnels adaptés aux besoins des entreprises et organisations.',
+    order: 2,
+    details: {
+      eyebrow: 'Services',
+      title: 'Une présence web claire, professionnelle et maintenable.',
+      bullets: ['Sites vitrines', 'Sites institutionnels', 'Blogs professionnels', 'Portails d’information', 'Sites événementiels', 'Refonte de sites', 'Maintenance'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'digitalisation-entreprises',
+    title: 'Digitalisation des entreprises',
+    icon: 'RefreshCw',
+    description: 'Remplacement des processus manuels par des solutions numériques simples et efficaces.',
+    order: 3,
+    details: {
+      eyebrow: 'Services',
+      title: 'Des processus plus fluides, mieux suivis et moins dépendants du papier.',
+      bullets: ['Analyse des processus métiers', 'Solutions de gestion', 'Formation des équipes', 'Gestion documentaire', 'Tableaux de bord'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'conception-ui-ux',
+    title: 'Conception UI/UX',
+    icon: 'Palette',
+    description: 'Création d’interfaces modernes, intuitives et centrées utilisateur.',
+    order: 4,
+    details: {
+      eyebrow: 'Services',
+      title: 'Des interfaces utiles, lisibles et faciles à adopter.',
+      bullets: ['Maquettes d’applications', 'Maquettes de sites web', 'Prototypage interactif', 'Design system', 'Optimisation UX', 'Visuels et affiches sur mesure', 'Formation des équipes'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'hebergement-deploiement',
+    title: 'Hébergement et déploiement',
+    icon: 'CloudCog',
+    description: 'Mise en production et gestion des infrastructures applicatives, avec hébergement local lorsque c’est pertinent.',
+    order: 5,
+    details: {
+      eyebrow: 'Services',
+      title: 'Une mise en ligne maîtrisée et un socle technique fiable.',
+      bullets: ['Déploiement de plateformes web', 'Gestion de serveurs', 'Configuration de domaines', 'Surveillance des services', 'Hébergement local des solutions développées'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'maintenance-support',
+    title: 'Maintenance et support',
+    icon: 'Headphones',
+    description: 'Assistance technique après livraison pour garder vos projets stables et performants.',
+    order: 6,
+    details: {
+      eyebrow: 'Services',
+      title: 'Un accompagnement technique après la mise en ligne.',
+      bullets: ['Correction de bugs', 'Mises à jour', 'Assistance utilisateur', 'Optimisation des performances', 'Évolution fonctionnelle'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'intelligence-artificielle',
+    title: 'Intelligence artificielle',
+    icon: 'BrainCircuit',
+    description: 'Intégrez la puissance de l’IA dans vos processus métiers et vos outils internes.',
+    order: 7,
+    details: {
+      eyebrow: 'Services',
+      title: 'Des usages IA concrets pour automatiser, analyser et assister vos équipes.',
+      bullets: ['Chatbots et agents IA', 'Modèles d’aide à la décision', 'Analyse prédictive et business', 'Assistant IA WhatsApp', 'Automatisation intelligente des processus métier', 'Systèmes IA multimodaux intelligents'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'conseil-transformation-numerique',
+    title: 'Conseil en transformation numérique',
+    icon: 'Compass',
+    description: 'Accompagnement stratégique des organisations dans leurs projets numériques.',
+    order: 8,
+    details: {
+      eyebrow: 'Services',
+      title: 'Des décisions numériques cadrées, réalistes et alignées avec vos objectifs.',
+      bullets: ['Audit numérique', 'Étude de faisabilité', 'Élaboration de cahiers des charges', 'Accompagnement de projets', 'Choix technologiques', 'Assistance à la maîtrise d’ouvrage'],
+    },
+  },
+  {
+    type: 'service',
+    slug: 'synthese-vocale-voix-ia',
+    title: 'Synthèse vocale et voix IA',
+    icon: 'AudioLines',
+    description: 'Création de voix professionnelles pour spots radio, SVI, e-learning et applications. Bientôt disponible.',
+    order: 9,
+    details: {
+      eyebrow: 'Services bientôt disponible',
+      title: 'Des expériences vocales professionnelles pour vos contenus et applications.',
+      bullets: ['Synthèse vocale IA', 'Spots audio et publicités radio', 'Voix pour applications et chatbots', 'Clonage de voix professionnelles', 'Serveurs vocaux intelligents (SVI)', 'Contenu audio en langues locales'],
+    },
+  },
   { type: 'solution', slug: 'portail-entreprise', title: 'Portail entreprise', icon: 'Blocks', description: 'Centralisez les ressources, les échanges et les outils de vos équipes.', order: 1 },
   { type: 'solution', slug: 'application-metier', title: 'Application métier', icon: 'BriefcaseBusiness', description: 'Digitalisez précisément les processus qui font la valeur de votre organisation.', order: 2 },
   { type: 'solution', slug: 'espace-client', title: 'Espace client', icon: 'MonitorSmartphone', description: 'Offrez à vos clients un accès simple, autonome et sécurisé à vos services.', order: 3 },
@@ -70,6 +179,16 @@ export const catalogItems = [
   { type: 'solution', slug: 'automatisation-processus', title: 'Automatisation', icon: 'Bot', description: 'Réduisez les tâches répétitives et libérez du temps pour les activités essentielles.', order: 5 },
   { type: 'solution', slug: 'tableaux-de-bord', title: 'Tableaux de bord', icon: 'BarChart3', description: 'Transformez vos données en indicateurs utiles pour mieux décider.', order: 6 },
   { type: 'solution', slug: 'integrations-api', title: 'Intégrations API', icon: 'LayoutDashboard', description: 'Connectez vos logiciels et faites circuler les données sans friction.', order: 7 },
+]
+
+export const legacyServiceSlugs = [
+  'transformation-digitale',
+  'developpement-web',
+  'developpement-mobile',
+  'plateformes-metiers',
+  'ux-ui-design',
+  'cloud-devops',
+  'conseil-it',
 ]
 
 export const projects = [
