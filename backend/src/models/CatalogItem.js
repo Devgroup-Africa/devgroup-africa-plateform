@@ -13,6 +13,13 @@ const catalogItemSchema = new mongoose.Schema(
       eyebrow: { type: String, default: '' },
       title: { type: String, default: '' },
       bullets: [{ type: String }],
+      offers: [{
+        title: { type: String, required: true },
+        description: { type: String, default: '' },
+        price: { type: String, default: 'Sur devis' },
+        duration: { type: String, default: '' },
+        includes: [{ type: String }],
+      }],
     },
   },
   { timestamps: true },

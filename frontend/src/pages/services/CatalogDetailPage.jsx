@@ -21,6 +21,7 @@ export function CatalogDetailPage({ type }) {
   if (!item) return null
 
   const Icon = item.icon
+  const offers = item.details?.offers || []
   const bullets = item.details?.bullets || [
     'Cadrage précis de vos besoins',
     'Conception centrée utilisateurs',
@@ -34,6 +35,39 @@ export function CatalogDetailPage({ type }) {
         <div><Link className="back-link" to={`/${type}`}>← Retour aux {type}</Link><span className="icon-box icon-large"><Icon size={30} /></span><h1>{item.title}</h1><p>{item.description}</p><Link className="button" to="/devis">Parler de votre besoin <ArrowRight size={17} /></Link></div>
         <div className="detail-panel"><span>{item.details?.eyebrow || 'Notre approche'}</span><h2>{item.details?.title || 'Une solution utile aujourd’hui, prête pour demain.'}</h2><ul>{bullets.map(bullet => <li key={bullet}><Check size={18} />{bullet}</li>)}</ul></div>
       </div></section>
+      {offers.length > 0 && (
+        <section className="service-offers-section">
+          <div className="container">
+            <div className="section-title">
+              <div>
+                <span className="eyebrow">Offres</span>
+                <h2>Des formats adaptés à votre besoin.</h2>
+                <p>Chaque sous-service peut être cadré précisément selon vos contenus, vos délais et vos objectifs.</p>
+              </div>
+            </div>
+            <div className="service-offer-grid">
+              {offers.map(offer => (
+                <article className="service-offer-card" key={offer.title}>
+                  <div>
+                    <h3>{offer.title}</h3>
+                    <p>{offer.description}</p>
+                  </div>
+                  <dl>
+                    <div><dt>Prix</dt><dd>{offer.price}</dd></div>
+                    <div><dt>Délai</dt><dd>{offer.duration}</dd></div>
+                  </dl>
+                  {offer.includes?.length > 0 && (
+                    <ul>
+                      {offer.includes.map(item => <li key={item}><Check size={15} />{item}</li>)}
+                    </ul>
+                  )}
+                  <Link className="button button-small" to="/devis">Demander un devis <ArrowRight size={15} /></Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
       <CallToAction />
     </PublicLayout>
   )

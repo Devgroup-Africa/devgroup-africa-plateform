@@ -1,3 +1,5 @@
+import { serviceOffers } from './serviceOffers.js'
+
 export const homePage = {
   key: 'home',
   title: 'Accueil',
@@ -66,6 +68,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Des solutions métiers construites autour de vos usages.',
       bullets: ['Applications web', 'Applications mobiles', 'Logiciels métiers', 'Plateformes SaaS', 'Portails clients', 'Outils de gestion interne', 'Modernisation d’applications', 'Applications de bureau'],
+      offers: serviceOffers['developpement-solutions-numeriques'],
     },
   },
   {
@@ -79,6 +82,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Une présence web claire, professionnelle et maintenable.',
       bullets: ['Sites vitrines', 'Sites institutionnels', 'Blogs professionnels', 'Portails d’information', 'Sites événementiels', 'Refonte de sites', 'Maintenance'],
+      offers: serviceOffers['creation-sites-web'],
     },
   },
   {
@@ -92,6 +96,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Des processus plus fluides, mieux suivis et moins dépendants du papier.',
       bullets: ['Analyse des processus métiers', 'Solutions de gestion', 'Formation des équipes', 'Gestion documentaire', 'Tableaux de bord'],
+      offers: serviceOffers['digitalisation-entreprises'],
     },
   },
   {
@@ -105,6 +110,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Des interfaces utiles, lisibles et faciles à adopter.',
       bullets: ['Maquettes d’applications', 'Maquettes de sites web', 'Prototypage interactif', 'Design system', 'Optimisation UX', 'Visuels et affiches sur mesure', 'Formation des équipes'],
+      offers: serviceOffers['conception-ui-ux'],
     },
   },
   {
@@ -118,6 +124,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Une mise en ligne maîtrisée et un socle technique fiable.',
       bullets: ['Déploiement de plateformes web', 'Gestion de serveurs', 'Configuration de domaines', 'Surveillance des services', 'Hébergement local des solutions développées'],
+      offers: serviceOffers['hebergement-deploiement'],
     },
   },
   {
@@ -131,6 +138,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Un accompagnement technique après la mise en ligne.',
       bullets: ['Correction de bugs', 'Mises à jour', 'Assistance utilisateur', 'Optimisation des performances', 'Évolution fonctionnelle'],
+      offers: serviceOffers['maintenance-support'],
     },
   },
   {
@@ -144,6 +152,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Des usages IA concrets pour automatiser, analyser et assister vos équipes.',
       bullets: ['Chatbots et agents IA', 'Modèles d’aide à la décision', 'Analyse prédictive et business', 'Assistant IA WhatsApp', 'Automatisation intelligente des processus métier', 'Systèmes IA multimodaux intelligents'],
+      offers: serviceOffers['intelligence-artificielle'],
     },
   },
   {
@@ -157,6 +166,7 @@ export const catalogItems = [
       eyebrow: 'Services',
       title: 'Des décisions numériques cadrées, réalistes et alignées avec vos objectifs.',
       bullets: ['Audit numérique', 'Étude de faisabilité', 'Élaboration de cahiers des charges', 'Accompagnement de projets', 'Choix technologiques', 'Assistance à la maîtrise d’ouvrage'],
+      offers: serviceOffers['conseil-transformation-numerique'],
     },
   },
   {
@@ -170,6 +180,7 @@ export const catalogItems = [
       eyebrow: 'Services bientôt disponible',
       title: 'Des expériences vocales professionnelles pour vos contenus et applications.',
       bullets: ['Synthèse vocale IA', 'Spots audio et publicités radio', 'Voix pour applications et chatbots', 'Clonage de voix professionnelles', 'Serveurs vocaux intelligents (SVI)', 'Contenu audio en langues locales'],
+      offers: serviceOffers['synthese-vocale-voix-ia'],
     },
   },
   { type: 'solution', slug: 'portail-entreprise', title: 'Portail entreprise', icon: 'Blocks', description: 'Centralisez les ressources, les échanges et les outils de vos équipes.', order: 1 },
