@@ -31,6 +31,14 @@ CLIENT_ORIGIN=https://example.com
 Change aussi `ADMIN_PASSWORD` et `JWT_SECRET` avant de mettre en ligne.
 
 Le fichier `frontend/.env` sert au developpement local. Avec Docker, le frontend utilise `/api` et Nginx redirige automatiquement vers le backend.
+Pour le SEO et le suivi, configurer aussi les variables frontend en production :
+
+```env
+VITE_SITE_URL=https://devgroup.ga
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+`VITE_GA_MEASUREMENT_ID` peut rester vide si Google Analytics n'est pas encore configure.
 
 ### 2. Demarrer le projet
 

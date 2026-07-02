@@ -6,7 +6,7 @@ export const homePage = {
   status: 'published',
   sections: {
     hero: {
-      eyebrow: 'Studio digital · Libreville',
+      eyebrow: 'Partenaire digital · Libreville',
       title: 'Le numérique qui fait avancer votre organisation.',
       highlight: 'avancer',
       text: 'Nous concevons des produits et services numériques simples, robustes et adaptés aux réalités de votre activité.',

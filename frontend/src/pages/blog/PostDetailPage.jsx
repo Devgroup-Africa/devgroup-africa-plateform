@@ -25,7 +25,7 @@ export function PostDetailPage() {
           <h1>{post.title}</h1>
           <p className="article-lead">{post.description}</p>
           <span>{post.date} · {post.readingTime || '5 min de lecture'}</span>
-          {post.coverImage && <img className="article-cover" src={post.coverImage} alt="" />}
+          {post.coverImage && <img className="article-cover" src={post.coverImage} alt={post.title} />}
           <div className="article-body">
             {(post.body || '').split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
