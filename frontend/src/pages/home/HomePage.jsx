@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { ArrowRight, Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { formatPostDate } from '../../api/formatters'
@@ -82,34 +83,98 @@ function renderHighlightedTitle(title, highlight) {
   return <>{before}<em>{highlight}</em>{after}</>
 }
 
+function useHomeAnimations() {
+  const rootRef = useRef(null)
+
+  useEffect(() => {
+    const root = rootRef.current
+    if (!root) return undefined
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const revealTargets = [
+      ...root.querySelectorAll('.js-reveal'),
+      ...root.querySelectorAll('.service-card, .process-card, .project-card, .value-list > div, .post-card, .cta-card'),
+    ]
+
+    revealTargets.forEach((target, index) => {
+      target.classList.add('reveal')
+      target.style.setProperty('--reveal-index', String(index % 6))
+    })
+
+    if (reduceMotion) {
+      revealTargets.forEach(target => target.classList.add('is-visible'))
+      return undefined
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      })
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' })
+
+    revealTargets.forEach(target => observer.observe(target))
+
+    let frame = 0
+    const updateHeroShift = () => {
+      frame = 0
+      const shift = Math.min(window.scrollY * 0.08, 46)
+      root.style.setProperty('--hero-shift', `${shift}px`)
+    }
+    const onScroll = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(updateHeroShift)
+    }
+
+    updateHeroShift()
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  return rootRef
+}
+
 export function HomePage() {
+  const homeRef = useHomeAnimations()
   const { data } = useApiResource('/public/home', fallbackHome, normalizeHome)
   const sections = data.page?.sections || fallbackHome.page.sections
   const hero = sections.hero
 
   return (
     <PublicLayout>
-      <section className="hero" style={{ backgroundImage: `url("${hero.image || heroImages.team}")` }}>
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <span className="eyebrow">{hero.eyebrow}</span>
-            <h1>{renderHighlightedTitle(hero.title, hero.highlight)}</h1>
-            <p>{hero.text}</p>
-            <div className="hero-actions">
-              <Link className="button" to={hero.primaryCta.path}>{hero.primaryCta.label} <ArrowRight size={17} /></Link>
-              <Link className="button button-ghost" to={hero.secondaryCta.path}>{hero.secondaryCta.label}</Link>
+      <div className="home-animate" ref={homeRef}>
+        <section className="hero home-hero" style={{ backgroundImage: `url("${hero.image || heroImages.team}")` }}>
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <span className="eyebrow">{hero.eyebrow}</span>
+              <h1>{renderHighlightedTitle(hero.title, hero.highlight)}</h1>
+              <p>{hero.text}</p>
+              <div className="hero-actions">
+                <Link className="button" to={hero.primaryCta.path}>{hero.primaryCta.label} <ArrowRight size={17} /></Link>
+                <Link className="button button-ghost" to={hero.secondaryCta.path}>{hero.secondaryCta.label}</Link>
+              </div>
+              <div className="hero-trust" aria-label="Expertises">
+                <div className="hero-trust-track">
+                  {[...hero.trust, ...hero.trust].map((item, index) => <span key={`${item}-${index}`}>{item}</span>)}
+                </div>
+              </div>
             </div>
-            <div className="hero-trust">{hero.trust.map(item => <span key={item}>{item}</span>)}</div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section><div className="container"><SectionTitle {...sections.expertise} /><CardGrid items={data.services} basePath="/services" limit={4} /></div></section>
-      <section className="soft-section"><div className="container"><SectionTitle eyebrow={sections.method.eyebrow} title={sections.method.title} /><div className="process-grid">{sections.method.steps.map(step => <div className="process-card" key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}</div></div></section>
-      <section><div className="container"><SectionTitle {...sections.projects} /><ProjectGrid items={data.projects} /></div></section>
-      <section className="dark-section"><div className="container split"><div><span className="eyebrow eyebrow-light">{sections.values.eyebrow}</span><h2>{sections.values.title}</h2></div><div className="value-list">{sections.values.items.map(value => <div key={value}><Check size={18} />{value}</div>)}</div></div></section>
-      <section><div className="container"><SectionTitle {...sections.blog} /><PostGrid items={data.posts} /></div></section>
-      <CallToAction />
+        <section className="home-section js-reveal"><div className="container"><SectionTitle {...sections.expertise} /><CardGrid items={data.services} basePath="/services" limit={4} /></div></section>
+        <section className="soft-section home-section js-reveal"><div className="container"><SectionTitle eyebrow={sections.method.eyebrow} title={sections.method.title} /><div className="process-grid">{sections.method.steps.map(step => <div className="process-card" key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}</div></div></section>
+        <section className="home-section js-reveal"><div className="container"><SectionTitle {...sections.projects} /><ProjectGrid items={data.projects} /></div></section>
+        <section className="dark-section home-section js-reveal"><div className="container split"><div><span className="eyebrow eyebrow-light">{sections.values.eyebrow}</span><h2>{sections.values.title}</h2></div><div className="value-list">{sections.values.items.map(value => <div key={value}><Check size={18} />{value}</div>)}</div></div></section>
+        <section className="home-section js-reveal"><div className="container"><SectionTitle {...sections.blog} /><PostGrid items={data.posts} /></div></section>
+        <CallToAction />
+      </div>
     </PublicLayout>
   )
 }
